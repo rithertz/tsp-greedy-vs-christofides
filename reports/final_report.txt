@@ -1,0 +1,39 @@
+TSP Experiment: Greedy vs Christofides
+==================================================
+
+Configuration:
+  n values: [10, 20, 50, 100, 200]
+  Instance types: ['random', 'clustered']
+  Repetitions per (n,type): 50
+  Total instances: 500
+
+Summary Statistics (averages over repetitions):
+  n      type  greedy_len_mean  greedy_len_std  greedy_len_min  greedy_len_max  greedy_time_mean  christo_len_mean  christo_len_std  christo_len_min  christo_len_max  christo_time_mean  lb_mean  greedy_ratio_mean  christo_ratio_mean  count
+ 10 clustered         1.844499        0.490760        0.799715        2.835844          0.000039          1.779768         0.479523         0.732777         2.680346           0.000986 1.070482           1.730665            1.666938     50
+ 10    random         3.189968        0.494736        2.367422        4.040270          0.000044          3.030412         0.451403         2.250797         3.998301           0.001132 2.054406           1.561928            1.482147     50
+ 20 clustered         2.362757        0.459819        1.397260        3.413810          0.000073          2.254770         0.450714         1.282900         3.329702           0.002099 1.415677           1.675436            1.595522     50
+ 20    random         4.527120        0.543863        3.132664        6.013929          0.000103          4.166153         0.414170         2.941762         5.050925           0.001979 3.027417           1.497854            1.378506     50
+ 50 clustered         3.325858        0.607018        1.613550        4.414438          0.000296          2.934860         0.541918         1.641440         3.936503           0.012824 1.983209           1.673854            1.474046     50
+ 50    random         7.085258        0.551311        5.974555        8.802181          0.000283          6.385343         0.361526         5.617898         7.146831           0.011959 4.858636           1.459163            1.314512     50
+100 clustered         4.214845        0.599649        2.667754        5.223214          0.001165          3.682416         0.522868         2.322556         4.501762           0.076619 2.582348           1.630787            1.423267     50
+100    random         9.667235        0.554121        8.503099       11.021218          0.001439          8.673144         0.250415         8.147131         9.134771           0.100402 6.729088           1.436858            1.289178     50
+200 clustered         5.546500        0.588732        4.397087        6.637052          0.003925          4.865724         0.488646         3.896166         5.718157           0.427588 3.509833           1.578766            1.385142     50
+200    random        13.448334        0.590564       11.950269       14.959910          0.004093         11.998022         0.333791        11.262263        12.887747           0.483806 9.452233           1.422837            1.269384     50
+
+Paired t-test results (greedy vs christofides):
+  n=10, type=clustered: t=5.5085, p=0.0000, mean diff (greedy - christo) = 0.0647
+  n=10, type=random: t=4.2393, p=0.0001, mean diff (greedy - christo) = 0.1596
+  n=20, type=clustered: t=5.8118, p=0.0000, mean diff (greedy - christo) = 0.1080
+  n=20, type=random: t=7.9524, p=0.0000, mean diff (greedy - christo) = 0.3610
+  n=50, type=clustered: t=12.6326, p=0.0000, mean diff (greedy - christo) = 0.3910
+  n=50, type=random: t=9.7291, p=0.0000, mean diff (greedy - christo) = 0.6999
+  n=100, type=clustered: t=16.3229, p=0.0000, mean diff (greedy - christo) = 0.5324
+  n=100, type=random: t=13.0866, p=0.0000, mean diff (greedy - christo) = 0.9941
+  n=200, type=clustered: t=21.5279, p=0.0000, mean diff (greedy - christo) = 0.6808
+  n=200, type=random: t=19.3662, p=0.0000, mean diff (greedy - christo) = 1.4503
+
+Observations:
+  - Christofides is designed for metric TSP and should stay close to the 1.5x guarantee.
+  - Greedy is faster but can occasionally exceed the 1.5× bound.
+  - For small n, both algorithms are near-optimal; differences grow with n.
+  - Clustered instances sometimes yield shorter tours than random ones.

@@ -1,0 +1,32 @@
+# Python caches and build output
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local logs and temporary files
+logs/
+*.log
+tmp/
+temp/
+
+# Compiled binaries and generated executable output
+*.exe
+*.dll
+*.so
+*.dylib
+algorithm executions/output/
