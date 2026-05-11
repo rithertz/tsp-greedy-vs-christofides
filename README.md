@@ -83,9 +83,3 @@ The demo shows the greedy construction, the Christofides pipeline, and a live
 quality comparison against the exact optimum for small instances or the MST
 lower bound for larger ones.
 
-## Notes for GitHub
-
-Generated Python caches, local editor settings, logs, virtual environments, and
-compiled binaries are ignored. CSV results, plots, and the final report are kept
-in the repository so the benchmark output is visible without rerunning the full
-experiment.
